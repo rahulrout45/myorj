@@ -7,7 +7,7 @@
     <groupId>com.example</groupId>
     <artifactId>aws-devops-service</artifactId>
     <version>1.0.0</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>AWS DevOps Service</name>
     <description>A Spring Boot project for AWS and DevOps automation</description>
@@ -54,6 +54,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- Servlet API required for WAR deployment -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -61,6 +68,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <packaging>war</packaging>
+                </configuration>
             </plugin>
         </plugins>
     </build>
